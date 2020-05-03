@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome Customers!"
+        android:text="Welcome Shopkeepers!"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:background="@color/blue"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:textColor="@color/colorAccent"
-        android:text="Don't have an account?" />
+        android:text="Don't have a Shop account?" />
 
     <Button
         android:id="@+id/register_button"
@@ -74,19 +74,12 @@
         android:onClick="btn_register"/>
 
     <TextView
+        android:id="@+id/errorDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/colorAccent"
-        android:text="Shop Login?" />
-
-    <Button
-        android:id="@+id/shop_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Shop Login"
-        android:textColor="#000000"
-        android:onClick="btn_shop_login"/>
+        android:layout_marginTop="20dp"
+        android:textColor="@color/highlight"
+        android:text=""
+        android:textSize="12sp" />
 
 </LinearLayout>
