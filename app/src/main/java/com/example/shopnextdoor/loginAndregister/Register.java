@@ -1,4 +1,4 @@
-package com.example.shopnextdoor.loginAndregister;
+package com.example.shopnextdoor.LoginAndRegister;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,8 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shopnextdoor.R;
-import com.example.shopnextdoor.network.Customer;
+import com.example.shopnextdoor.Data.Customer;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
+import com.example.shopnextdoor.network.URL;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +32,16 @@ public class Register extends AppCompatActivity {
     Button loginButton;
     TextView error, genderTitle;
 
+    URL url = new URL();
+
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(url.getUrl())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+
+    ShopNextDoorServerAPI shopNextDoorServerAPI = retrofit.create(ShopNextDoorServerAPI.class);
+
+    //Main class
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +57,21 @@ public class Register extends AppCompatActivity {
         genderTitle = findViewById(R.id.genderTitle);
         error = findViewById(R.id.errorDisplay);
         loginButton = findViewById(R.id.loginButton);
+
+        onPause();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        username.getText().clear();
+        password.getText().clear();
+        confirmPassword.getText().clear();
+        name.getText().clear();
+        mobile.getText().clear();
+        address.getText().clear();
+        error.setText("");
+        gender.clearCheck();
     }
 
     //Register Button
@@ -69,24 +95,24 @@ public class Register extends AppCompatActivity {
         String add = address.getText().toString();
         genderVal = findViewById(gender.getCheckedRadioButtonId());
 
-        if(user.equals("")){
-            username.setHintTextColor(Color.RED);
-            error.setText("Username required.");
-        }else if(pass.equals("")){
-            password.setHintTextColor(Color.RED);
-            error.setText("Password required.");
-        }else if(nameVal.equals("")){
+        if(nameVal.equals("")){
             name.setHintTextColor(Color.RED);
             error.setText("Full Name required.");
+        }else if(genderVal==null){
+            genderTitle.setHintTextColor(Color.RED);
+            error.setText("Select Gender.");
         }else if(mob.equals("")){
             mobile.setHintTextColor(Color.RED);
             error.setText("Mobile Number required.");
         }else if(add.equals("")){
             address.setHintTextColor(Color.RED);
             error.setText("Address required.");
-        }else if(genderVal==null){
-            genderTitle.setHintTextColor(Color.RED);
-            error.setText("Select Gender.");
+        }else if(user.equals("")){
+            username.setHintTextColor(Color.RED);
+            error.setText("Username required.");
+        }else if(pass.equals("")){
+            password.setHintTextColor(Color.RED);
+            error.setText("Password required.");
         }else if(!confPass.equals(pass)){
             confirmPassword.setHintTextColor(Color.RED);
             error.setText("Password and Confirm Password do not match.");
@@ -105,6 +131,7 @@ public class Register extends AppCompatActivity {
         }
     }
 
+    //Function to register customer by calling API
     private void register() {
         //Toast.makeText(this, "Entered Register Function!", Toast.LENGTH_SHORT).show();
         String user = username.getText().toString();
@@ -117,18 +144,13 @@ public class Register extends AppCompatActivity {
 
         Customer customer = new Customer(user, pass, nameVal, genderT, mob, add);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.43.13:3030")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ShopNextDoorServerAPI shopNextDoorServerAPI = retrofit.create(ShopNextDoorServerAPI.class);
+        //Calling the API
         Call<Customer> call = shopNextDoorServerAPI.registerCustomer(customer);
-
         call.enqueue(new Callback<Customer>() {
             @Override
             public void onResponse(Call<Customer> call, Response<Customer> response) {
                 if(!response.isSuccessful()){
+                    Toast.makeText(Register.this, "Registration unsuccessful due to some error. Please try again after some time.", Toast.LENGTH_SHORT).show();
                     Log.e("Unsuccessful response: ", response.toString());
                     return;
                 }
@@ -136,7 +158,7 @@ public class Register extends AppCompatActivity {
                 String result = response.body().getResult();
                 Log.e("String response: ", result);
                 if(result.equals("1")){
-                    error.setTextColor(Color.GREEN);
+                    error.setTextColor(Color.BLUE);
                     error.setText("Customer created successfully! Proceed to login below.");
                     loginButton.setVisibility(View.VISIBLE);
                 }else if(result.equals("2")){
@@ -153,10 +175,12 @@ public class Register extends AppCompatActivity {
             @Override
             public void onFailure(Call<Customer> call, Throwable t) {
                 Log.e("Failure response: ", t.getMessage());
+                Toast.makeText(Register.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    //Login Button
     public void btn_login(View view) {
         Intent intent = new Intent(Register.this, Login.class);
         startActivity(intent);

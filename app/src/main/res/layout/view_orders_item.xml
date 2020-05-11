@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order No: "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1234"
+            android:textStyle="bold"
+            android:id="@+id/order_number"/>
+
+        <TextView
+            android:id="@+id/order_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Order Items"
+            android:textSize="12sp"
+            android:gravity="right"
+            android:onClick="link_order_details"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10sp"
+        android:elevation="5dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/shop_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/shop_icon"/>
+
+            <TextView
+                android:id="@+id/shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop: Dhamecha"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/shop_icon"/>
+
+            <TextView
+                android:id="@+id/order_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type: "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/shop_icon"
+                android:layout_below="@id/shop_name"/>
+
+            <TextView
+                android:id="@+id/order_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mode: "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/shop_icon"
+                android:layout_below="@id/order_type"/>
+
+            <TextView
+                android:id="@+id/placed_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Placed on "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/shop_icon"
+                android:layout_below="@id/order_mode"/>
+
+            <TextView
+                android:id="@+id/accepted_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Accepted on "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/shop_icon"
+                android:layout_below="@id/placed_date"/>
+
+            <TextView
+                android:id="@+id/completion_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Completed on "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/shop_icon"
+                android:layout_below="@id/accepted_date"/>
+
+
+            <TextView
+                android:id="@+id/amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount: Not available"
+                android:textSize="15sp"
+                android:layout_toRightOf="@id/shop_icon"
+                android:layout_below="@id/completion_date"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/order_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pending"
+                android:textSize="20dp"
+                android:layout_toRightOf="@id/shop_icon"
+                android:layout_below="@id/completion_date"
+                android:layout_marginLeft="200dp"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:textAllCaps="true" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/order_status_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shop has not accepted your order yet."
+        android:textSize="10dp"
+        android:layout_toRightOf="@id/shop_icon"
+        android:layout_gravity="center"
+        android:layout_below="@id/placed_date"
+        android:visibility="visible"/>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginBottom="5dp"/>
+
+</LinearLayout>

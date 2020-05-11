@@ -1,4 +1,4 @@
-package com.example.shopnextdoor.loginAndregister;
+package com.example.shopnextdoor.LoginAndRegister;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

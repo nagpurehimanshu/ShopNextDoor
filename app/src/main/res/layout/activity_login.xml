@@ -15,7 +15,8 @@
         android:textColor="@color/white"
         android:background="@color/blue"
         android:layout_gravity="center"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textSize="20dp"/>
 
     <EditText
         android:id="@+id/username"

@@ -11,6 +11,16 @@
     <color name="red">#F44336</color>
     <color name="green">#009688</color>
     <color name="white">#FFFFFF</color>
+    <color name="orange">#FFC107</color>
+    
+    <color name="darkPrimary">#1976D2</color>
+    <color name="lightPrimary">#BBDEFB</color>
+    <color name="primary">#2196F3</color>
+    <color name="text_icons">#FFFFFF</color>
+    <color name="accent">#536DFE</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#757575</color>
+    <color name="divider">#BDBDBD</color>
 </resources>
 
 

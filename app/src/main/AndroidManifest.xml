@@ -12,15 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PlaceOrder"></activity>
-        <activity android:name=".loginAndregister.VerificationPending" />
-        <activity android:name=".HomeShop" />
-        <activity android:name=".loginAndregister.ShopRegister" />
-        <activity android:name=".loginAndregister.ShopLogin" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".loginAndregister.Register" />
-        <activity android:name=".loginAndregister.Login" />
-        <activity android:name=".HomeCustomer">
+        <activity android:name=".Shop.ViewPastOrders"></activity>
+        <activity android:name=".Shop.NewOrderRequests" />
+        <activity android:name=".Shop.ShopPendingOrders" />
+        <activity android:name=".NavigationBar.HomeCustomerNavigation" />
+        <activity android:name=".Customer.ViewOrders" />
+        <activity android:name=".Customer.OrderPlaced" />
+        <activity android:name=".Customer.HomeCustomer" />
+        <activity android:name=".LoginAndRegister.VerificationPending" />
+        <activity android:name=".Shop.HomeShop" />
+        <activity android:name=".LoginAndRegister.ShopRegister" />
+        <activity android:name=".LoginAndRegister.ShopLogin" />
+        <activity android:name=".LoginAndRegister.Register" />
+        <activity android:name=".Customer.PlaceOrder" />
+        <activity android:name=".LoginAndRegister.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
