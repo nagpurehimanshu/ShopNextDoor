@@ -1,0 +1,19 @@
+Features added and projected:
+
+1. Simple login and register for customer
+  a. Check for required fields and other correction check before registration.
+  b. Check for username existence in DB and matching the password before login.
+2. Simple login and register for shopkeepers
+  a. Check for required fields and other correction check before registration.
+  b. Check for shop verification, username existence and password match before login.
+  c. Create a verification pending activity if verification is not done. (verification=1 for pending, 2 for accepted, 3 for rejected)
+3. Customer Home Page
+  a. Show customer name on top ("welcome" <customer_name>)
+  b. Show number of pending orders and a link to order details if order number more than zero.
+  c. Create a new order
+    1. Select shop using shop names spinner.
+    2. Proceed to place
+4. Place Order Page
+  a. Show shop name on the top
+  b. Choose between home delivery and shop pickup
+  c. Put values of all the items one by one in the recycler view.
