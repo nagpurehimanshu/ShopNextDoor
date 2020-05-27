@@ -69,6 +69,7 @@ public class HomeShop extends AppCompatActivity {
         order_requests_number = findViewById(R.id.order_requests_number);
         loadingDialog = new LoadingDialog(this);
 
+        loadingDialog.startDialog();
         //Setting Navigation View variables
         setNavData();
 
@@ -107,11 +108,13 @@ public class HomeShop extends AppCompatActivity {
 
                 pending_orders_number.setText(Integer.toString(pending));
                 order_requests_number.setText(Integer.toString(requests));
+                loadingDialog.dismissDialog();
             }
 
             @Override
             public void onFailure(Call<List<Orders>> call, Throwable t) {
                 Log.e("Failure Response: ", t.getMessage());
+                loadingDialog.dismissDialog();
             }
         });
     }
@@ -189,6 +192,7 @@ public class HomeShop extends AppCompatActivity {
     }
 
     private void myRefreshOperation() {
+        loadingDialog.startDialog();
         fetchData();
     }
 
@@ -227,7 +231,6 @@ public class HomeShop extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         myRefreshOperation();
-        loadingDialog.dismissDialog();
     }
 
     private void showMyDialog() {

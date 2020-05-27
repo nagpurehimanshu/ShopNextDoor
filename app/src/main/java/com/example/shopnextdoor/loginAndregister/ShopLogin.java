@@ -55,16 +55,9 @@ public class ShopLogin extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadingDialog.dismissDialog();
-    }
-
-    @Override
-    public void onPause(){
-        super.onPause();
         username.getText().clear();
         password.getText().clear();
     }
-
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
@@ -79,9 +72,6 @@ public class ShopLogin extends AppCompatActivity {
         final String user = username.getText().toString();
         final String pass = password.getText().toString();
 
-//        username.setHintTextColor(Color.parseColor("#2196F3"));
-//        password.setHintTextColor(Color.parseColor("#2196F3"));
-
         if(user.length()<=4){
             showMyDialog("Username can not be less than 4 letters.", 2);
             return;
@@ -92,6 +82,7 @@ public class ShopLogin extends AppCompatActivity {
             return;
         }
 
+        loadingDialog.startDialog();
         //Calling the API
         Call<Shop> call = shopNextDoorServerAPI.getShop(user);
         call.enqueue(new Callback<Shop>() {
@@ -102,7 +93,7 @@ public class ShopLogin extends AppCompatActivity {
                     Log.e("Unsuccessful response: ", response.toString());
                     return;
                 }
-
+                loadingDialog.dismissDialog();
                 String result = response.body().getResult();
                 Log.e("String response: ", result);
 
@@ -111,7 +102,6 @@ public class ShopLogin extends AppCompatActivity {
                     startActivity(intent);
                 }else if(result.equals("2")){
                     if(response.body().getPassword().equals(pass)){
-                        loadingDialog.startDialog();
                         ManageSharedPreferences.saveUsername(getApplicationContext(), user);
                         ManageSharedPreferences.saveName(getApplicationContext(), response.body().getName());
                         ManageSharedPreferences.saveType(getApplicationContext(), true);
@@ -134,6 +124,7 @@ public class ShopLogin extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Shop> call, Throwable t) {
+                loadingDialog.dismissDialog();
                 Log.e("Failure response: ", t.getMessage());
                 Toast.makeText(ShopLogin.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
             }

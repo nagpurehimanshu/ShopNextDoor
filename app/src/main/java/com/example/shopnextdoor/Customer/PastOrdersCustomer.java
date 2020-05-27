@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.shopnextdoor.Adapters.RecyclerAdapterViewPastOrdersCustomer;
 import com.example.shopnextdoor.Data.Orders;
 import com.example.shopnextdoor.R;
+import com.example.shopnextdoor.Utility.LoadingDialog;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
 import com.example.shopnextdoor.network.URL;
 
@@ -32,6 +33,7 @@ public class PastOrdersCustomer extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerAdapterViewPastOrdersCustomer recyclerAdapterViewPastOrdersCustomer;
     List<Orders> inputData = new ArrayList<Orders>();
+    LoadingDialog loadingDialog;
 
     URL url = new URL();
 
@@ -50,7 +52,9 @@ public class PastOrdersCustomer extends AppCompatActivity {
         customer_name = intent.getStringExtra("customer_name");
 
         recyclerView = findViewById(R.id.recycler_view_past_orders);
+        loadingDialog = new LoadingDialog(this);
 
+        loadingDialog.startDialog();
         //get Orders Data
         getOrderData();
 
@@ -112,6 +116,7 @@ public class PastOrdersCustomer extends AppCompatActivity {
                 }else if(response==null) {
                     Log.e("Null Response: ", response.toString());
                 }
+                loadingDialog.dismissDialog();
                 if(inputData.size()==0) showMyDialog();
                 recyclerAdapterViewPastOrdersCustomer.notifyDataSetChanged();
             }
@@ -120,6 +125,7 @@ public class PastOrdersCustomer extends AppCompatActivity {
             public void onFailure(Call<List<Orders>> call, Throwable t) {
                 Log.e("Failure response: ", t.getMessage());
                 Toast.makeText(PastOrdersCustomer.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
+                loadingDialog.dismissDialog();
             }
         });
     }

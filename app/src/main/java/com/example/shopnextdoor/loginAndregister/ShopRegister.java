@@ -200,7 +200,6 @@ public class ShopRegister extends AppCompatActivity {
 
     //Register Button
     public void btn_register(View view) {
-        loadingDialog.startDialog();
 //        username.setHighlightColor(Color.parseColor("#2196F3"));
 //        password.setHighlightColor(Color.parseColor("#2196F3"));
 //        confirmPassword.setHighlightColor(Color.parseColor("#2196F3"));
@@ -258,11 +257,11 @@ public class ShopRegister extends AppCompatActivity {
                 register();
             }
         }
-        loadingDialog.dismissDialog();
     }
 
     //Function to register shopkeepers
     private void register() {
+        loadingDialog.startDialog();
         String user = username.getText().toString();
         String pass = password.getText().toString();
         String shopName = name.getText().toString();
@@ -283,6 +282,7 @@ public class ShopRegister extends AppCompatActivity {
                     return;
                 }
 
+                loadingDialog.dismissDialog();
                 String result = response.body().getResult();
                 Log.e("String response: ", result);
                 if(result.equals("1")){
@@ -296,6 +296,7 @@ public class ShopRegister extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Shop> call, Throwable t) {
+                loadingDialog.dismissDialog();
                 Log.e("Failure response: ", t.getMessage());
                 Toast.makeText(ShopRegister.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
             }

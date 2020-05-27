@@ -162,15 +162,6 @@ public class Register extends AppCompatActivity {
 
     //Register Button
     public void btn_register(View view){
-        loadingDialog.startDialog();
-        //Setting field colors to default values
-//        username.setHighlightColor(Color.parseColor("#2196F3"));
-//        password.setHighlightColor(Color.parseColor("#2196F3"));
-//        confirmPassword.setHighlightColor(Color.parseColor("#2196F3"));
-//        name.setHighlightColor(Color.parseColor("#2196F3"));
-//        mobile.setHighlightColor(Color.parseColor("#2196F3"));
-//        address.setHighlightColor(Color.parseColor("#2196F3"));
-//        genderTitle.setHighlightColor(Color.parseColor("#2196F3"));
         error.setText("");
 
         String user = username.getText().toString();
@@ -219,7 +210,6 @@ public class Register extends AppCompatActivity {
                 register();
             }
         }
-        loadingDialog.dismissDialog();
     }
 
     //Function to register customer by calling API
@@ -248,7 +238,7 @@ public class Register extends AppCompatActivity {
                     Log.e("Unsuccessful response: ", response.toString());
                     return;
                 }
-
+                loadingDialog.dismissDialog();
                 String result = response.body().getResult();
                 Log.e("String response: ", result);
                 if(result.equals("1")){

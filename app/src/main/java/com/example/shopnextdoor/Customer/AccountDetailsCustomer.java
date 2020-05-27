@@ -144,11 +144,13 @@ public class AccountDetailsCustomer extends AppCompatActivity {
             public void onFailure(Call<Customer> call, Throwable t) {
                 Toast.makeText(AccountDetailsCustomer.this, "Server not reachable. Please try again later.", Toast.LENGTH_SHORT).show();
                 Log.e("Failure response: ", t.getMessage());
+                loadingDialog.dismissDialog();
             }
         });
     }
 
     public void update_details_btn(View view){
+        loadingDialog.startDialog();
         if(update){
             Call<String> call = shopNextDoorServerAPI.updateCustomer(username.getText().toString(), mobile.getText().toString(), address.getText().toString(), email.getText().toString());
             call.enqueue(new Callback<String>() {
@@ -159,6 +161,7 @@ public class AccountDetailsCustomer extends AppCompatActivity {
                         Toast.makeText(AccountDetailsCustomer.this, "Server Unresponsive at the moment.", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    loadingDialog.dismissDialog();
                     if(response.body().equals("1")){
                         showSuccessDialog("Details updated successfully.");
                         update = false;
@@ -171,9 +174,11 @@ public class AccountDetailsCustomer extends AppCompatActivity {
                 public void onFailure(Call<String> call, Throwable t) {
                     Toast.makeText(AccountDetailsCustomer.this, "Server not reachable. Please try again later.", Toast.LENGTH_SHORT).show();
                     Log.e("Failure response: ", t.getMessage());
+                    loadingDialog.dismissDialog();
                 }
             });
         }else{
+            loadingDialog.dismissDialog();
             showErrorDialog("No changes found.", 2);
         }
     }

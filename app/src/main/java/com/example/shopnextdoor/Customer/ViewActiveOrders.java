@@ -16,6 +16,7 @@ import com.example.shopnextdoor.Adapters.Customer_CancelOrder_OnClick;
 import com.example.shopnextdoor.Adapters.RecyclerAdapterActiveOrdersCustomer;
 import com.example.shopnextdoor.Data.Orders;
 import com.example.shopnextdoor.R;
+import com.example.shopnextdoor.Utility.LoadingDialog;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
 import com.example.shopnextdoor.network.URL;
 
@@ -33,6 +34,7 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
     RecyclerView recyclerView;
     RecyclerAdapterActiveOrdersCustomer recyclerAdapterActiveOrdersCustomer;
     List<Orders> inputData = new ArrayList<Orders>();
+    LoadingDialog loadingDialog;
 
     URL url = new URL();
 
@@ -52,6 +54,8 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
 
         recyclerView = findViewById(R.id.recycler_view_active_orders);
 
+        loadingDialog = new LoadingDialog(this);
+        loadingDialog.startDialog();
         //get Orders Data
         getOrderData();
 
@@ -110,6 +114,7 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
                         Log.e("Null Response: ", response.toString());
                     }
                 }
+                loadingDialog.dismissDialog();
                 if(inputData.size()==0){
                     showMyDialog();
                 }
@@ -120,6 +125,7 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
             public void onFailure(Call<List<Orders>> call, Throwable t) {
                 Log.e("Failure response: ", t.getMessage());
                 Toast.makeText(ViewActiveOrders.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
+                loadingDialog.dismissDialog();
             }
         });
     }
@@ -146,6 +152,7 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
 
     @Override
     public void cancel_order_onClick(final int position) {
+        loadingDialog.startDialog();
         Call<String> call = shopNextDoorServerAPI.updateOrderStatus(inputData.get(position).getOrder_number(), "cancelled", 0);
         call.enqueue(new Callback<String>() {
             @Override
@@ -158,6 +165,7 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
                 inputData.remove(position);
                 Toast.makeText(ViewActiveOrders.this, "Order cancelled successfully.", Toast.LENGTH_SHORT).show();
                 recyclerAdapterActiveOrdersCustomer.notifyDataSetChanged();
+                loadingDialog.dismissDialog();
                 if(inputData.size()==0){
                     showMyDialog();
                 }
@@ -166,6 +174,7 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Log.e("Failure Response: ", t.getMessage());
+                loadingDialog.dismissDialog();
             }
         });
     }

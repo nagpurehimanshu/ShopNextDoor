@@ -16,6 +16,7 @@ public class LoadingDialog {
 
         LayoutInflater layoutInflater = activity.getLayoutInflater();
         builder.setView(layoutInflater.inflate(R.layout.dialog_progress, null));
+        builder.setCancelable(false);
 
         builder.setCancelable(true);
         alertDialog = builder.create();

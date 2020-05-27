@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.shopnextdoor.Data.Orders;
 import com.example.shopnextdoor.R;
+import com.example.shopnextdoor.Utility.LoadingDialog;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
 import com.example.shopnextdoor.network.URL;
 
@@ -23,6 +24,7 @@ public class OrderPlaced extends AppCompatActivity {
 
     private TextView orderNumber, orderShopName, orderDate, orderType, orderMode, orderItems, shop_address, shop_address_logo;
     String order_number, customer_username, customer_name, shop_name;
+    LoadingDialog loadingDialog;
 
     URL url = new URL();
 
@@ -50,6 +52,8 @@ public class OrderPlaced extends AppCompatActivity {
         orderItems = findViewById(R.id.order_items);
         shop_address = findViewById(R.id.shop_address);
         shop_address_logo = findViewById(R.id.shop_address_logo);
+        loadingDialog = new LoadingDialog(this);
+        loadingDialog.startDialog();
 
         Call<Orders> call = shopNextDoorServerAPI.getOrderDetails(order_number);
         call.enqueue(new Callback<Orders>() {
@@ -89,12 +93,14 @@ public class OrderPlaced extends AppCompatActivity {
                     orderItems.setText(orderItemsOutput);
                     shop_address.setText(response.body().getResult());
                 }
+                loadingDialog.dismissDialog();
             }
 
             @Override
             public void onFailure(Call<Orders> call, Throwable t) {
                 Log.e("Failure response: ", t.getMessage());
                 Toast.makeText(OrderPlaced.this, "Unable to load data. Please check your connection.", Toast.LENGTH_SHORT).show();
+                loadingDialog.dismissDialog();
             }
         });
     }

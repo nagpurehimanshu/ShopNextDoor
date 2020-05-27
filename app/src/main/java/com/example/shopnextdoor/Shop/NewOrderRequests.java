@@ -15,6 +15,7 @@ import com.example.shopnextdoor.Adapters.Shop_Approve_Reject_OnClick;
 import com.example.shopnextdoor.Adapters.RecyclerAdapterNewOrderRequestsShop;
 import com.example.shopnextdoor.Data.Orders;
 import com.example.shopnextdoor.R;
+import com.example.shopnextdoor.Utility.LoadingDialog;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
 import com.example.shopnextdoor.network.URL;
 
@@ -33,6 +34,7 @@ public class NewOrderRequests extends AppCompatActivity implements Shop_Approve_
     List<Orders> inputData = new ArrayList<Orders>();
     RecyclerView recyclerView;
     RecyclerAdapterNewOrderRequestsShop recyclerAdapterNewOrderRequestsShop;
+    LoadingDialog loadingDialog;
 
     URL url = new URL();
     Retrofit retrofit = new Retrofit.Builder()
@@ -49,6 +51,9 @@ public class NewOrderRequests extends AppCompatActivity implements Shop_Approve_
         Intent intent = getIntent();
         shop_name = intent.getStringExtra("shop_name");
         shop_username = intent.getStringExtra("shop_username");
+
+        loadingDialog = new LoadingDialog(this);
+        loadingDialog.startDialog();
 
         //Recycler View
         recyclerView = findViewById(R.id.recycler_view_order_requests);
@@ -113,14 +118,16 @@ public class NewOrderRequests extends AppCompatActivity implements Shop_Approve_
                 }else if(response==null) {
                     Log.e("Null Response: ", response.toString());
                 }
+                loadingDialog.dismissDialog();
                 if(inputData.size()==0) showMyDialog();
                 recyclerAdapterNewOrderRequestsShop.notifyDataSetChanged();
             }
 
             @Override
             public void onFailure(Call<List<Orders>> call, Throwable t) {
-                    Log.e("Failure response: ", t.getMessage());
-                    Toast.makeText(NewOrderRequests.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
+                loadingDialog.dismissDialog();
+                Log.e("Failure response: ", t.getMessage());
+                Toast.makeText(NewOrderRequests.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -128,6 +135,7 @@ public class NewOrderRequests extends AppCompatActivity implements Shop_Approve_
     //Approve and Reject button on click methods
     @Override
     public void app_rej_onClick(final int position, final boolean action) {
+        loadingDialog.startDialog();
         Call<String> call;
         //Approve button clicked
         if(action==false) {
@@ -152,6 +160,7 @@ public class NewOrderRequests extends AppCompatActivity implements Shop_Approve_
                 }else{
                     Toast.makeText(NewOrderRequests.this, "Order rejected successfully.", Toast.LENGTH_SHORT).show();
                 }
+                loadingDialog.dismissDialog();
                 inputData.remove(position);
                 recyclerAdapterNewOrderRequestsShop.notifyDataSetChanged();
                 if(inputData.size()==0){
@@ -162,6 +171,7 @@ public class NewOrderRequests extends AppCompatActivity implements Shop_Approve_
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Log.e("Failure Response: ", t.getMessage());
+                loadingDialog.dismissDialog();
             }
         });
     }

@@ -48,13 +48,11 @@ public class Login extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         loadingDialog = new LoadingDialog(this);
-
-        onPause();
     }
 
     @Override
-    public void onPause(){
-        super.onPause();
+    public void onResume(){
+        super.onResume();
         username.getText().clear();
         password.getText().clear();
     }
@@ -77,6 +75,7 @@ public class Login extends AppCompatActivity {
             return;
         }
 
+        loadingDialog.startDialog();
         //API call to check user details
         Call<Customer> call = shopNextDoorServerAPI.getCustomer(user);
         call.enqueue(new Callback<Customer>() {
@@ -90,10 +89,9 @@ public class Login extends AppCompatActivity {
 
                 String result = response.body().getResult();
                 Log.e("String response: ", result);
-
+                loadingDialog.dismissDialog();
                 if(result.equals("1")){
                     if(response.body().getPassword().equals(pass)){
-                        loadingDialog.startDialog();
                         ManageSharedPreferences.saveUsername(getApplicationContext(), user);
                         ManageSharedPreferences.saveName(getApplicationContext(), response.body().getName());
                         ManageSharedPreferences.saveType(getApplicationContext(), false);
@@ -114,6 +112,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Customer> call, Throwable t) {
+                loadingDialog.dismissDialog();
                 Log.e("Failure response: ", t.getMessage());
                 Toast.makeText(Login.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
             }

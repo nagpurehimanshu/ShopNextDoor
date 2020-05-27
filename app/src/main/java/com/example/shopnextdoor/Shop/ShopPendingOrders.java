@@ -15,6 +15,7 @@ import com.example.shopnextdoor.Adapters.Shop_OrderComplete_OnClick;
 import com.example.shopnextdoor.Adapters.RecyclerAdapterPendingOrdersShop;
 import com.example.shopnextdoor.Data.Orders;
 import com.example.shopnextdoor.R;
+import com.example.shopnextdoor.Utility.LoadingDialog;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
 import com.example.shopnextdoor.network.URL;
 
@@ -33,6 +34,7 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
     List<Orders> inputData = new ArrayList<Orders>();
     RecyclerView recyclerView;
     RecyclerAdapterPendingOrdersShop recyclerAdapterPendingOrdersShop;
+    LoadingDialog loadingDialog;
 
     URL url = new URL();
     Retrofit retrofit = new Retrofit.Builder()
@@ -49,6 +51,8 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
         Intent intent = getIntent();
         shop_name = intent.getStringExtra("shop_name");
         shop_username = intent.getStringExtra("shop_username");
+        loadingDialog = new LoadingDialog(this);
+        loadingDialog.startDialog();
 
         //Recycler View
         recyclerView = findViewById(R.id.recycler_view_pending_orders);
@@ -113,12 +117,14 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
                 }else if(response==null) {
                     Log.e("Null Response: ", response.toString());
                 }
+                loadingDialog.dismissDialog();
                 if(inputData.size()==0) showMyDialog();
                 recyclerAdapterPendingOrdersShop.notifyDataSetChanged();
             }
 
             @Override
             public void onFailure(Call<List<Orders>> call, Throwable t) {
+                loadingDialog.dismissDialog();
                 Log.e("Failure response: ", t.getMessage());
                 Toast.makeText(ShopPendingOrders.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
             }
@@ -132,6 +138,7 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
             return;
         }
 
+        loadingDialog.startDialog();
         Call<String> call = shopNextDoorServerAPI.updateOrderStatus(inputData.get(position).getOrder_number(), "completed", inputData.get(position).getAmount());
         call.enqueue(new Callback<String>() {
             @Override
@@ -141,7 +148,7 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
                     Toast.makeText(ShopPendingOrders.this, "Server Unresponsive at the moment.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                loadingDialog.dismissDialog();
                 inputData.remove(position);
                 if(inputData.size()==0) showMyDialog();
                 recyclerAdapterPendingOrdersShop.notifyDataSetChanged();
@@ -151,6 +158,7 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Log.e("Failure Response: ", t.getMessage());
+                loadingDialog.dismissDialog();
             }
         });
     }
