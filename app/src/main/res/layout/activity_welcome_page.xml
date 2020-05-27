@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginAndRegister.WelcomePage"
+    android:background="@color/bgColor"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/app_logo"
+        android:id="@+id/app_logo"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"/>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:src="@drawable/app_name_icon"
+        android:layout_below="@id/app_logo"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/rect_button2"
+        android:onClick="login_btn"
+        android:text="LOGIN"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/rect_button1"
+        android:onClick="register_btn"
+        android:text="REGISTER"
+        android:textColor="@color/fgColor"
+        android:textSize="25dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register"
+        android:layout_marginLeft="5dp"
+        android:text="Shop Login?"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        android:paddingLeft="30dp"/>
+
+    <Button
+        android:id="@+id/shop_login"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/text"
+        android:layout_marginTop="8sp"
+        android:background="@drawable/rect_button3"
+        android:onClick="shop_login_btn"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:text="Shop Login"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/colorPrimaryDark" />
+
+</LinearLayout>

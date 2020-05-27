@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="60dp"
+    android:background="@color/bgColor">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome Customers!"
+        android:textStyle="bold"
+        android:textColor="@color/fgColor"
+        android:background="@color/white"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_marginTop="60dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:layout_marginBottom="10sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:textColorHint="@color/white"
+        android:inputType="textPassword"
+        android:focusable="true"
+        android:textSize="15dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:focusableInTouchMode="true"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"/>
+
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:onClick="btn_login"
+        android:layout_gravity="center"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:background="@color/fgColor"
+        android:padding="10sp"/>
+
+</LinearLayout>

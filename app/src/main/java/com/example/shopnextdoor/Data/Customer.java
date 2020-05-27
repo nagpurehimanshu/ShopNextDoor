@@ -6,15 +6,17 @@ public class Customer {
     private String name;
     private String gender;
     private String mobile;
+    private String email;
     private String address;
     private String result;
 
-    public Customer(String username, String password, String name, String gender, String mobile, String address) {
+    public Customer(String username, String password, String name, String gender, String mobile, String address, String email) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.gender = gender;
         this.mobile = mobile;
+        this.email = email;
         this.address = address;
     }
 
@@ -36,6 +38,10 @@ public class Customer {
 
     public String getMobile() {
         return this.mobile;
+    }
+
+    public String getEmail() {
+        return this.email;
     }
 
     public String getAddress() {

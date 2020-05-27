@@ -12,7 +12,7 @@ public class VerificationPending extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verification_pending);
+        setContentView(R.layout.activity_shop_verification_pending);
     }
 
     public void btn_login(View view){

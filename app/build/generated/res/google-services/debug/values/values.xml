@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1055078551958-2enqqkl00le3ib0ut06evlqbhntm10oj.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://shop-next-door-himanshu.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1055078551958</string>
+    <string name="google_api_key" translatable="false">AIzaSyC_SHUOjlO2NsmZPtjX6AMk5yK5calDDXg</string>
+    <string name="google_app_id" translatable="false">1:1055078551958:android:2dfb17fdc73dde213d0db7</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC_SHUOjlO2NsmZPtjX6AMk5yK5calDDXg</string>
+    <string name="google_storage_bucket" translatable="false">shop-next-door-himanshu.appspot.com</string>
+    <string name="project_id" translatable="false">shop-next-door-himanshu</string>
+</resources>

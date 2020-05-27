@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/logout" android:title="Logout" app:showAsAction="always" android:orderInCategory="100" android:icon="@drawable/logout_icon"/>
         <item android:id="@+id/account_details" android:title="Account Details" app:showAsAction="always" android:orderInCategory="99" android:icon="@drawable/account_details"/>
-        <item android:id="@+id/view_orders" android:title="View Orders" app:showAsAction="always" android:orderInCategory="98" android:icon="@drawable/view_orders"/>
+        <item android:id="@+id/view_past_orders" android:title="View Past Orders" app:showAsAction="always" android:orderInCategory="98" android:icon="@drawable/view_orders"/>
         <item android:id="@+id/exit" android:title="Exit" app:showAsAction="always" android:orderInCategory="101" android:icon="@drawable/exit_icon"/>
     </group>
 </menu>

@@ -1,5 +1,7 @@
 package com.example.shopnextdoor.network;
 
+import android.text.Editable;
+
 import com.example.shopnextdoor.Data.Customer;
 import com.example.shopnextdoor.Data.Orders;
 import com.example.shopnextdoor.Data.Shop;
@@ -8,20 +10,25 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface ShopNextDoorServerAPI {
 
     @GET("/getCustomer")
-    Call<Customer> getCustomer(@Query("username") String username, @Query("password") String password);
+    Call<Customer> getCustomer(@Query("username") String username);
 
     @POST("/registerCustomer")
     Call<Customer> registerCustomer(@Body Customer customer);
 
+    @GET("/getCustomerList")
+    Call<List<Customer>> getCustomerList();
+
     @GET("/getShop")
-    Call<Shop> getShop(@Query("username") String username, @Query("password") String password);
+    Call<Shop> getShop(@Query("username") String username);
 
     @POST("/registerShop")
     Call<Shop> registerShop(@Body Shop shop);
@@ -44,6 +51,15 @@ public interface ShopNextDoorServerAPI {
     @GET("/getCustomerOrders")
     Call<List<Orders>> getCustomerOrders(@Query("customer_username") String customer_username);
 
-    @GET("/getActiveOrdersList")
-    Call<List<Orders>> getActiveOrdersList(@Query("shop_username") String shop_username);
+    @PUT("/updateOrderStatus")
+    Call<String> updateOrderStatus(@Query("order_number") String order_number, @Query("order_status") String order_status, @Query("amount") int amount);
+
+    @GET("/getOrdersByShop")
+    Call<List<Orders>> getOrdersByShop(@Query("shop_username") String shop_username);
+
+    @PUT("/updateCustomer")
+    Call<String> updateCustomer(@Query("username") String username, @Query("mobile") String mobile, @Query("address") String address, @Query("email") String email);
+
+    @PUT("/updateShop")
+    Call<String> updateShop(@Query("username") String username, @Query("owner_mobile") String owner_mobile, @Query("address") String address, @Query("email") String email);
 }

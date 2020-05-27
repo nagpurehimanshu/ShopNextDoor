@@ -10,6 +10,6 @@ public class HomeCustomerNavigation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_customer_navigation_header);
+        setContentView(R.layout.customer_home_navigation_header);
     }
 }

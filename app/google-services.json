@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1055078551958",
+    "firebase_url": "https://shop-next-door-himanshu.firebaseio.com",
+    "project_id": "shop-next-door-himanshu",
+    "storage_bucket": "shop-next-door-himanshu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055078551958:android:2dfb17fdc73dde213d0db7",
+        "android_client_info": {
+          "package_name": "com.example.shopnextdoor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055078551958-apj2eddtfhtmkjku3fk9dinboacsb487.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shopnextdoor",
+            "certificate_hash": "36bc381708b3ed074dba7395922dea082a76a23e"
+          }
+        },
+        {
+          "client_id": "1055078551958-2enqqkl00le3ib0ut06evlqbhntm10oj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_SHUOjlO2NsmZPtjX6AMk5yK5calDDXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055078551958-2enqqkl00le3ib0ut06evlqbhntm10oj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

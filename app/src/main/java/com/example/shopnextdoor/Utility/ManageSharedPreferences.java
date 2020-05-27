@@ -4,20 +4,42 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import static com.example.shopnextdoor.Utility.SharedPreferencesValues.LOGGED_IN_STATUS;
-
 public class ManageSharedPreferences {
-    static SharedPreferences getPreferences(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context);
-    }
 
-    public static void setLoggedIn(Context context, boolean loggedIn) {
-        SharedPreferences.Editor editor = getPreferences(context).edit();
-        editor.putBoolean(LOGGED_IN_STATUS, loggedIn);
+    public static void saveUsername(Context context, String username){
+        SharedPreferences preferences = context.getSharedPreferences("Login", context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("username", username);
         editor.apply();
     }
 
-    public static boolean getLoggedStatus(Context context) {
-        return getPreferences(context).getBoolean(LOGGED_IN_STATUS, false);
+    public static String getUsername(Context context){
+        SharedPreferences preferences = context.getSharedPreferences("Login", context.MODE_PRIVATE);
+        return preferences.getString("username", "");
+    }
+
+    public static void saveName(Context context, String name){
+        SharedPreferences preferences = context.getSharedPreferences("Login", context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("name", name);
+        editor.apply();
+    }
+
+    public static String getName(Context context){
+        SharedPreferences preferences = context.getSharedPreferences("Login", context.MODE_PRIVATE);
+        return preferences.getString("name", "");
+    }
+
+    //type: 0 for customer, 1 for shop
+    public static void saveType(Context context, boolean type){
+        SharedPreferences preferences = context.getSharedPreferences("Login", context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("type", type);
+        editor.apply();
+    }
+
+    public static Boolean getType(Context context){
+        SharedPreferences preferences = context.getSharedPreferences("Login", context.MODE_PRIVATE);
+        return preferences.getBoolean("type", false);
     }
 }

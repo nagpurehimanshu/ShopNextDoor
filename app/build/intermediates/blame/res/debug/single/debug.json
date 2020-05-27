@@ -1,0 +1,390 @@
+[
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shop_account_icon.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\shop_account_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_refresh_icon.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\refresh_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_account_details_customer.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_account_details_customer.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_rounded.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\btn_rounded.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_shop_home_navigation_header.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\shop_home_navigation_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_account_details_shop.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_account_details_shop.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rect_button2.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\rect_button2.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_rounded2.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\btn_rounded2.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_shop_past_order_row.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\shop_past_order_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_view_orders.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\view_orders.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\menu_home_customer_toolbar.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\menu\\home_customer_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_customer_shopping_items.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\customer_shopping_items.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shop_login.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_shop_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_new_order_requests.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\new_order_requests.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_item_divider.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\spinner_item_divider.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rect_button1.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\rect_button1.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_gallery.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\ic_menu_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shop_view_past_orders.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_shop_view_past_orders.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_customer_order_status.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\customer_order_status.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_rounded4.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\btn_rounded4.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_camera.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_account_icon.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-anydpi\\account_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_no_orders.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\dialog_no_orders.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pending_orders.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\pending_orders.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_progress.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\dialog_progress.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_error_icon.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\error_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_slideshow.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_customer_view_past_orders_row.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\customer_view_past_orders_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_customer_place_order.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_customer_place_order.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_customer_icon.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-xxhdpi\\customer_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_order_placed_icon.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\order_placed_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_customer_home_toolbar.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\customer_home_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\menu_home_shop_toolbar.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\menu\\home_shop_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_app_name_img.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-xxhdpi\\app_name_img.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_app_name_icon.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-xxhdpi\\app_name_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_customer_past_orders.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_customer_past_orders.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\menu_home_customer_nav_options.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\menu\\home_customer_nav_options.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_back1.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-anydpi\\back1.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_exit_logo.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-v24\\exit_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_side_nav_bar.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_app_icon.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-xhdpi\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shop_new_order_requests.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_shop_new_order_requests.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_customer_login.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_customer_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_shop_order_request_row.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\shop_order_request_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_pending_orders_icon.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-anydpi\\pending_orders_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_customer_home.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_customer_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_account_details.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\account_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\menu_home_shop_nav_options.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\menu\\home_shop_nav_options.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_registration.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\dialog_registration.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_welcome_page.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_welcome_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shop_home.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_shop_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_exit.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\dialog_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_customer_home_navigation_header.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\customer_home_navigation_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_customer_place_order_dialog.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\customer_place_order_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_customer_view_active_orders_row.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\customer_view_active_orders_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\xml\\network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_customer_register.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_customer_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logout_icon.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\logout_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_app_logo.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-xxhdpi\\app_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shop_register.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_shop_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_exit_icon.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\exit_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shop_icon.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\shop_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_app_logo2.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-xxhdpi\\app_logo2.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\raw_my_ca.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\raw\\my_ca"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_navigation_icon.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable-v24\\navigation_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_no_orders_icon.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\no_orders_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shop_pending_orders.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_shop_pending_orders.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_act_new.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\act_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_item.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\spinner_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_customer_order_details.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\customer_order_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rect_button3.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\rect_button3.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_customer_order_placed.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_customer_order_placed.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_rounded3.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\drawable\\btn_rounded3.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shop_verification_pending.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_shop_verification_pending.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_shop_pending_orders_row.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\shop_pending_orders_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_customer_view_active_orders.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\activity_customer_view_active_orders.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_success.xml.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\layout\\dialog_success.xml"
+    },
+    {
+        "merged": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\hinagpur.ORADEV\\AndroidStudioProjects\\ShopNextDoor\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    }
+]

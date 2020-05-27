@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OrderPlaced extends AppCompatActivity {
 
-    private TextView orderNumber, orderShopName, orderDate, orderType, orderMode, orderItems;
+    private TextView orderNumber, orderShopName, orderDate, orderType, orderMode, orderItems, shop_address, shop_address_logo;
     String order_number, customer_username, customer_name, shop_name;
 
     URL url = new URL();
@@ -35,7 +35,7 @@ public class OrderPlaced extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_placed);
+        setContentView(R.layout.activity_customer_order_placed);
         Intent intent = getIntent();
         order_number = intent.getStringExtra("order_number");
         customer_username = intent.getStringExtra("customer_username");
@@ -48,6 +48,8 @@ public class OrderPlaced extends AppCompatActivity {
         orderType = findViewById(R.id.order_type);
         orderMode = findViewById(R.id.mode_of_delivery);
         orderItems = findViewById(R.id.order_items);
+        shop_address = findViewById(R.id.shop_address);
+        shop_address_logo = findViewById(R.id.shop_address_logo);
 
         Call<Orders> call = shopNextDoorServerAPI.getOrderDetails(order_number);
         call.enqueue(new Callback<Orders>() {
@@ -67,6 +69,11 @@ public class OrderPlaced extends AppCompatActivity {
                     orderDate.setText(response.body().getOrder_placed_date());
                     orderType.setText(response.body().getOrder_type());
                     orderMode.setText(response.body().getOrder_mode());
+                    if(orderMode.getText().toString().equals("Home Delivery")){
+                        shop_address.setVisibility(View.GONE);
+                        shop_address_logo.setVisibility(View.GONE);
+                    }
+
                     String orderItemsOutput = "1. ";
                     int count = 2;
                     String responseDetails = response.body().getOrder_items();
@@ -80,6 +87,7 @@ public class OrderPlaced extends AppCompatActivity {
                         }
                     }
                     orderItems.setText(orderItemsOutput);
+                    shop_address.setText(response.body().getResult());
                 }
             }
 
@@ -92,6 +100,15 @@ public class OrderPlaced extends AppCompatActivity {
     }
 
     public void btn_home(View view) {
+        Intent intent = new Intent(getApplicationContext(), HomeCustomer.class);
+        intent.putExtra("customer_username", customer_username);
+        intent.putExtra("customer_name", customer_name);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
         Intent intent = new Intent(getApplicationContext(), HomeCustomer.class);
         intent.putExtra("customer_username", customer_username);
         intent.putExtra("customer_name", customer_name);

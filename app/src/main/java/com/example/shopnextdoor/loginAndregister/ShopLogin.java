@@ -1,11 +1,12 @@
 package com.example.shopnextdoor.LoginAndRegister;
 
 import android.content.Intent;
-import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import com.example.shopnextdoor.Shop.HomeShop;
 import com.example.shopnextdoor.R;
 import com.example.shopnextdoor.Data.Shop;
+import com.example.shopnextdoor.Utility.LoadingDialog;
+import com.example.shopnextdoor.Utility.ManageSharedPreferences;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
 import com.example.shopnextdoor.network.URL;
 
@@ -27,6 +30,7 @@ public class ShopLogin extends AppCompatActivity {
     EditText username, password;
     TextView errorDisplay;
     URL url = new URL();
+    LoadingDialog loadingDialog;
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(url.getUrl())
@@ -44,8 +48,14 @@ public class ShopLogin extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         errorDisplay = findViewById(R.id.errorDisplay);
+        loadingDialog = new LoadingDialog(this);
+    }
 
-        onPause();
+    //Getting back to the same activity
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadingDialog.dismissDialog();
     }
 
     @Override
@@ -55,16 +65,35 @@ public class ShopLogin extends AppCompatActivity {
         password.getText().clear();
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        startActivity(new Intent(this, WelcomePage.class));
+    }
+
     public void btn_register(View view) {
         startActivity(new Intent(getApplicationContext(), ShopRegister.class));
     }
 
     public void btn_login(View view) {
         final String user = username.getText().toString();
-        String pass = password.getText().toString();
+        final String pass = password.getText().toString();
+
+//        username.setHintTextColor(Color.parseColor("#2196F3"));
+//        password.setHintTextColor(Color.parseColor("#2196F3"));
+
+        if(user.length()<=4){
+            showMyDialog("Username can not be less than 4 letters.", 2);
+            return;
+        }
+
+        if(pass.length()<=6){
+            showMyDialog("Password can not be less than 6 letters.", 2);
+            return;
+        }
 
         //Calling the API
-        Call<Shop> call = shopNextDoorServerAPI.getShop(user, pass);
+        Call<Shop> call = shopNextDoorServerAPI.getShop(user);
         call.enqueue(new Callback<Shop>() {
             @Override
             public void onResponse(Call<Shop> call, Response<Shop> response) {
@@ -81,18 +110,25 @@ public class ShopLogin extends AppCompatActivity {
                     Intent intent = new Intent(ShopLogin.this, VerificationPending.class);
                     startActivity(intent);
                 }else if(result.equals("2")){
-                    Intent intent = new Intent(ShopLogin.this, HomeShop.class);
-                    intent.putExtra("shop_username", user);
-                    intent.putExtra("shop_name", response.body().getName());
-                    startActivity(intent);
-                    Toast.makeText(ShopLogin.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                    if(response.body().getPassword().equals(pass)){
+                        loadingDialog.startDialog();
+                        ManageSharedPreferences.saveUsername(getApplicationContext(), user);
+                        ManageSharedPreferences.saveName(getApplicationContext(), response.body().getName());
+                        ManageSharedPreferences.saveType(getApplicationContext(), true);
+                        Intent intent = new Intent(ShopLogin.this, HomeShop.class);
+                        intent.putExtra("shop_username", user);
+                        intent.putExtra("shop_name", response.body().getName());
+                        startActivity(intent);
+                        Toast.makeText(ShopLogin.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        showMyDialog("Username or Password incorrect!", 2);
+                    }
                 }else if(result.equals("3")){
-                    errorDisplay.setTextColor(Color.RED);
-                    errorDisplay.setText("Your verification has been rejected by our team.");
+                    showMyDialog("Your verification has been rejected by our team.", 2);
                 }else if(result.equals("4")){
-                    Toast.makeText(ShopLogin.this, "Username or Password incorrect!", Toast.LENGTH_LONG).show();
+                    showMyDialog("Username or Password incorrect!", 2);
                 }else{
-                    Toast.makeText(ShopLogin.this, "Server Error", Toast.LENGTH_SHORT).show();
+                    showMyDialog("Server Error", 2);
                 }
             }
 
@@ -100,6 +136,39 @@ public class ShopLogin extends AppCompatActivity {
             public void onFailure(Call<Shop> call, Throwable t) {
                 Log.e("Failure response: ", t.getMessage());
                 Toast.makeText(ShopLogin.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //Show registration error dialog (action: 1 for login button, 2 for ok button)
+    private void showMyDialog(String error, int action) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_registration, null);
+        TextView error_msg = view.findViewById(R.id.error_msg);
+        Button login_btn = view.findViewById(R.id.login_btn);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+
+        error_msg.setText(error);
+        if(action==1) ok_btn.setVisibility(View.GONE);
+        else login_btn.setVisibility(View.GONE);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

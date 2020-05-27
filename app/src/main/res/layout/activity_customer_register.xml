@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/bgColor"
+    android:padding="40dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customer Registration"
+        android:textColor="@color/fgColor"
+        android:background="@color/white"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/errorDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/highlight"
+        android:text=""
+        android:textSize="12sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textSize="15sp"
+                android:hint="Full Name"
+                android:inputType="textCapWords"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/name_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Provide Full Name for convenience."
+                android:textColor="@color/white"
+                android:textStyle="italic"
+                android:textSize="10sp"
+                android:visibility="gone"/>
+
+            <RadioGroup
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10sp"
+                android:layout_marginBottom="15sp">
+
+                <TextView
+                    android:id="@+id/genderTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender:"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"/>
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/mobile"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="Mobile No"
+                    android:inputType="numberSigned"
+                    android:textSize="15sp"
+                    android:maxLength="10"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/mobile_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Should be 10 digits"
+                    android:textColor="@color/white"
+                    android:textStyle="italic"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="10sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="Email Id"
+                    android:inputType="textEmailAddress"
+                    android:textSize="15sp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/email_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="This will be required in case you forget your password."
+                    android:textColor="@color/white"
+                    android:textStyle="italic"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="10sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="Full Address"
+                    android:inputType="textPersonName"
+                    android:maxLength="100"
+                    android:textSize="15sp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10sp"/>
+
+                <TextView
+                    android:id="@+id/address_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Provide detailed address for convenience."
+                    android:textColor="@color/white"
+                    android:textStyle="italic"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="10sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="Username"
+                    android:textSize="15sp"
+                    android:inputType=""
+                    android:textColorHint="@color/white"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/username_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Should be atleast 4 characters with lowercase alphabets"
+                    android:textColor="@color/white"
+                    android:textStyle="italic"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="10sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:textSize="15sp"
+                    android:textColorHint="@color/white"
+                    android:inputType="textPassword"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/password_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Should be atleast 6 characters"
+                    android:textColor="@color/white"
+                    android:textStyle="italic"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="10sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/confirmPassword"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="Confirm Password"
+                android:textSize="15sp"
+                android:inputType="textPassword"
+                android:orientation="horizontal"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:onClick="btn_register"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:background="@drawable/rect_button2"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+
+
+

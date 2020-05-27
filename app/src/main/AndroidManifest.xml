@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.shopnextdoor">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,11 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Shop.ViewPastOrders"></activity>
+        <activity android:name=".LoginAndRegister.Login"/>
+        <activity android:name=".Shop.AccountDetailsShop" />
+        <activity android:name=".Customer.AccountDetailsCustomer" />
+        <activity android:name=".Customer.PastOrdersCustomer" />
+        <activity android:name=".Shop.ViewPastOrdersShop" />
         <activity android:name=".Shop.NewOrderRequests" />
         <activity android:name=".Shop.ShopPendingOrders" />
         <activity android:name=".NavigationBar.HomeCustomerNavigation" />
-        <activity android:name=".Customer.ViewOrders" />
+        <activity android:name=".Customer.ViewActiveOrders" />
         <activity android:name=".Customer.OrderPlaced" />
         <activity android:name=".Customer.HomeCustomer" />
         <activity android:name=".LoginAndRegister.VerificationPending" />
@@ -24,8 +29,8 @@
         <activity android:name=".LoginAndRegister.ShopRegister" />
         <activity android:name=".LoginAndRegister.ShopLogin" />
         <activity android:name=".LoginAndRegister.Register" />
-        <activity android:name=".Customer.PlaceOrder" />
-        <activity android:name=".LoginAndRegister.Login">
+        <activity android:name=".Customer.PlaceOrder"/>
+        <activity android:name=".LoginAndRegister.WelcomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
