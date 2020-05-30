@@ -49,6 +49,9 @@ public class RecyclerAdapterViewPastOrdersCustomer extends RecyclerView.Adapter<
         }
 
         if(ordersList.get(position).getOrder_status().equals("rejected")){
+            holder.rejection.setVisibility(View.VISIBLE);
+            holder.rejection_msg.setVisibility(View.VISIBLE);
+            holder.rejection_msg.setText(ordersList.get(position).getRejection_msg());
             holder.accepted_on.setText("Not Applicable");
             holder.completed_on.setText(ordersList.get(position).getOrder_completion_date());
             holder.order_status_info.setText("Sorry to say that shop has rejected your order.");
@@ -73,7 +76,7 @@ public class RecyclerAdapterViewPastOrdersCustomer extends RecyclerView.Adapter<
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView order_number, shop_name, order_type, mode, placed_on, accepted_on, completed_on, amount, order_status, order_status_info, order_items_expanded, shop_address, shop_address_logo;
+        TextView order_number, shop_name, order_type, mode, placed_on, accepted_on, completed_on, amount, order_status, order_status_info, order_items_expanded, shop_address, shop_address_logo, rejection, rejection_msg;
         Button view_order_items;
         ExpandableLayout expandableLayout;
         public MyViewHolder(View itemView) {
@@ -94,6 +97,8 @@ public class RecyclerAdapterViewPastOrdersCustomer extends RecyclerView.Adapter<
             shop_address_logo = itemView.findViewById(R.id.shop_address_logo);
             expandableLayout = itemView.findViewById(R.id.expandable_layout);
             order_items_expanded = itemView.findViewById(R.id.order_items_expanded);
+            rejection = itemView.findViewById(R.id.rejection);
+            rejection_msg = itemView.findViewById(R.id.rejection_msg);
 
             view_order_items.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -101,7 +106,6 @@ public class RecyclerAdapterViewPastOrdersCustomer extends RecyclerView.Adapter<
                     expandableLayout.toggle();
                 }
             });
-
         }
     }
 }

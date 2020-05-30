@@ -140,6 +140,7 @@ public class PlaceOrder extends AppCompatActivity{
 
     //Place Order Button
     public void btn_place_order(View view) {
+        dataStream = "";
         for (int i = 0; i < inputData.size(); i++) {
             if (inputData.get(i).getItem_name() != "" && inputData.get(i).getQuantity() != "") {
                 dataStream += inputData.get(i).getItem_name() + "," + inputData.get(i).getQuantity() + "," + inputData.get(i).getUnit();

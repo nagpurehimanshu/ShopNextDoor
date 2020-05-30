@@ -13,7 +13,7 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:background="@color/bgColor"/>
+        android:background="@color/colorPrimaryDark"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,12 +75,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(+91)"/>
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="numberSigned"
                     android:id="@+id/mobile"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="Mobile Number"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -105,7 +113,11 @@
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:id="@+id/email"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="Email Id"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -129,7 +141,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/address"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="Address"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -158,6 +173,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+        </LinearLayout>
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -166,14 +187,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:padding="20dp">
+                android:padding="15dp"
+                android:background="@color/colorPrimary">
                 <Button
                     android:id="@+id/update_details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Update Details"
-                    android:background="@drawable/btn_rounded3"
-                    android:textColor="@color/white"
+                    android:background="@drawable/btn_rounded5"
+                    android:textColor="@color/colorPrimary"
                     android:onClick="update_details_btn"
                     android:padding="10sp"/>
             </LinearLayout>

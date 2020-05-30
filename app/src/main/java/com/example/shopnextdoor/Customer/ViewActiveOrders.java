@@ -20,7 +20,12 @@ import com.example.shopnextdoor.Utility.LoadingDialog;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
 import com.example.shopnextdoor.network.URL;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,7 +34,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ViewActiveOrders extends AppCompatActivity implements Customer_CancelOrder_OnClick {
+public class ViewActiveOrders extends AppCompatActivity implements Customer_CancelOrder_OnClick{
     String customer_username, customer_name;
     RecyclerView recyclerView;
     RecyclerAdapterActiveOrdersCustomer recyclerAdapterActiveOrdersCustomer;
@@ -65,14 +70,14 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
         recyclerView.setAdapter(recyclerAdapterActiveOrdersCustomer);
     }
 
-    private void getOrderData() {
+    private void getOrderData(){
         Call<List<Orders>> call = shopNextDoorServerAPI.getCustomerOrders(customer_username);
         call.enqueue(new Callback<List<Orders>>() {
             @Override
             public void onResponse(Call<List<Orders>> call, Response<List<Orders>> response) {
                 if(!response.isSuccessful()){
                     Log.e("Unsuccessful response: ", response.toString());
-                    Toast.makeText(ViewActiveOrders.this, "Server Unresponsive", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Server Unresponsive", 2);
                 }else{
                     if(response.body().size() > 0){
                         Log.e("Successful Response: ", response.toString());
@@ -110,6 +115,7 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
                                 inputData.add(orders);
                             }
                         }
+                        sortData(inputData);
                     }else if(response==null) {
                         Log.e("Null Response: ", response.toString());
                     }
@@ -124,8 +130,44 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
             @Override
             public void onFailure(Call<List<Orders>> call, Throwable t) {
                 Log.e("Failure response: ", t.getMessage());
-                Toast.makeText(ViewActiveOrders.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
+                showErrorDialog("Server not reachable. Please check your connection.", 2);
                 loadingDialog.dismissDialog();
+            }
+        });
+    }
+
+    private void sortData(List<Orders> inputData) {
+        Collections.sort(inputData, new Comparator<Orders>() {
+            @Override
+            public int compare(Orders o1, Orders o2) {
+                Date d1 = null, d2 = null;
+                if(o1.getOrder_acceptance_date()!=null) {
+                    try {
+                        d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o1.getOrder_acceptance_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o1.getOrder_placed_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(o2.getOrder_acceptance_date()!=null) {
+                    try {
+                        d2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o2.getOrder_acceptance_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        d2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o2.getOrder_placed_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return d2.compareTo(d1);
             }
         });
     }
@@ -153,17 +195,17 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
     @Override
     public void cancel_order_onClick(final int position) {
         loadingDialog.startDialog();
-        Call<String> call = shopNextDoorServerAPI.updateOrderStatus(inputData.get(position).getOrder_number(), "cancelled", 0);
+        Call<String> call = shopNextDoorServerAPI.updateOrderStatus(inputData.get(position).getOrder_number(), "cancelled", 0, "");
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if(!response.isSuccessful()){
                     Log.e("Unsuccessful response: ", response.toString());
-                    Toast.makeText(ViewActiveOrders.this, "Server Unresponsive at the moment.", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Server Unresponsive at the moment.", 2);
                     return;
                 }
                 inputData.remove(position);
-                Toast.makeText(ViewActiveOrders.this, "Order cancelled successfully.", Toast.LENGTH_SHORT).show();
+                showSuccessDialog("Order cancelled successfully.");
                 recyclerAdapterActiveOrdersCustomer.notifyDataSetChanged();
                 loadingDialog.dismissDialog();
                 if(inputData.size()==0){
@@ -175,6 +217,53 @@ public class ViewActiveOrders extends AppCompatActivity implements Customer_Canc
             public void onFailure(Call<String> call, Throwable t) {
                 Log.e("Failure Response: ", t.getMessage());
                 loadingDialog.dismissDialog();
+                showErrorDialog("Server not reachable. Please check your connection.", 2);
+            }
+        });
+    }
+
+    //Show registration error dialog (action: 1 for login button, 2 for ok button)
+    private void showErrorDialog(String error, int action) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_registration, null);
+        TextView error_msg = view.findViewById(R.id.error_msg);
+        Button login_btn = view.findViewById(R.id.login_btn);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+
+        error_msg.setText(error);
+        if(action==1) ok_btn.setVisibility(View.GONE);
+        else login_btn.setVisibility(View.GONE);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    //Show success dialog
+    private void showSuccessDialog(String str) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_success, null);
+        TextView msg = view.findViewById(R.id.msg);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+        msg.setText(str);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

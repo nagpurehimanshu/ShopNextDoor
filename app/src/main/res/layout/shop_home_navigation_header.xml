@@ -7,14 +7,14 @@
     android:padding="10dp"
     tools:context=".NavigationBar.HomeCustomerNavigation"
     android:orientation="vertical"
-    android:background="@color/colorAccent"
+    android:background="@color/colorPrimaryDark"
     android:gravity="bottom"
     android:id="@+id/nav_header">
 
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/customer_icon" />
+        android:src="@drawable/account_icon" />
 
     <TextView
         android:id="@+id/nav_shop_name"

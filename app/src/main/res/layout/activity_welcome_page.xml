@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginAndRegister.WelcomePage"
-    android:background="@color/bgColor"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
     <ImageView
@@ -46,7 +46,7 @@
         android:background="@drawable/rect_button1"
         android:onClick="register_btn"
         android:text="REGISTER"
-        android:textColor="@color/fgColor"
+        android:textColor="@color/colorPrimary"
         android:textSize="25dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"/>
@@ -68,7 +68,7 @@
         android:layout_height="30dp"
         android:layout_below="@id/text"
         android:layout_marginTop="8sp"
-        android:background="@drawable/rect_button3"
+        android:background="@drawable/rect_button5"
         android:onClick="shop_login_btn"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"

@@ -7,7 +7,7 @@
     android:padding="10dp"
     tools:context=".NavigationBar.HomeCustomerNavigation"
     android:orientation="vertical"
-    android:background="@color/colorAccent"
+    android:background="@color/colorPrimaryDark"
     android:gravity="bottom"
     android:id="@+id/nav_header">
 

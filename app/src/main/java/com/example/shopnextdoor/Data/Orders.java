@@ -15,6 +15,7 @@ public class Orders {
     String order_mode;
     String customer_name;
     String shop_name;
+    String rejection_msg;
 
     public Orders(String order_items, String customer_username, String shop_username, String order_type, String order_mode, String customer_name, String shop_name) {
         this.order_items = order_items;
@@ -138,5 +139,13 @@ public class Orders {
 
     public void setShop_name(String shop_name) {
         this.shop_name = shop_name;
+    }
+
+    public String getRejection_msg() {
+        return rejection_msg;
+    }
+
+    public void setRejection_msg(String rejection_msg) {
+        this.rejection_msg = rejection_msg;
     }
 }

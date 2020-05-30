@@ -95,7 +95,7 @@ public class HomeShop extends AppCompatActivity {
             public void onResponse(Call<List<Orders>> call, Response<List<Orders>> response) {
                 if(!response.isSuccessful()){
                     Log.e("Unsuccessful response: ", response.toString());
-                    Toast.makeText(HomeShop.this, "Server Unresponsive at the moment.", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Server Unresponsive at the moment.", 2);
                     return;
                 }
 
@@ -115,6 +115,7 @@ public class HomeShop extends AppCompatActivity {
             public void onFailure(Call<List<Orders>> call, Throwable t) {
                 Log.e("Failure Response: ", t.getMessage());
                 loadingDialog.dismissDialog();
+                showErrorDialog("Server not reachable! Please try again later.", 2);
             }
         });
     }
@@ -256,6 +257,52 @@ public class HomeShop extends AppCompatActivity {
         });
 
         cancel_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    //Show registration error dialog (action: 1 for login button, 2 for ok button)
+    private void showErrorDialog(String error, int action) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_registration, null);
+        TextView error_msg = view.findViewById(R.id.error_msg);
+        Button login_btn = view.findViewById(R.id.login_btn);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+
+        error_msg.setText(error);
+        if(action==1) ok_btn.setVisibility(View.GONE);
+        else login_btn.setVisibility(View.GONE);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    //Show success dialog
+    private void showSuccessDialog(String str) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_success, null);
+        TextView msg = view.findViewById(R.id.msg);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+        msg.setText(str);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();

@@ -52,7 +52,7 @@ public interface ShopNextDoorServerAPI {
     Call<List<Orders>> getCustomerOrders(@Query("customer_username") String customer_username);
 
     @PUT("/updateOrderStatus")
-    Call<String> updateOrderStatus(@Query("order_number") String order_number, @Query("order_status") String order_status, @Query("amount") int amount);
+    Call<String> updateOrderStatus(@Query("order_number") String order_number, @Query("order_status") String order_status, @Query("amount") int amount, @Query("rejection_msg") String rejection_msg);
 
     @GET("/getOrdersByShop")
     Call<List<Orders>> getOrdersByShop(@Query("shop_username") String shop_username);

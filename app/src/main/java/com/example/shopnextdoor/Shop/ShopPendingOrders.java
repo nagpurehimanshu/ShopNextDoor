@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shopnextdoor.Adapters.Shop_OrderComplete_OnClick;
@@ -19,7 +21,12 @@ import com.example.shopnextdoor.Utility.LoadingDialog;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
 import com.example.shopnextdoor.network.URL;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -69,14 +76,15 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
             @Override
             public void onResponse(Call<List<Orders>> call, Response<List<Orders>> response) {
                 if (!response.isSuccessful()) {
+                    loadingDialog.dismissDialog();
                     Log.e("Unsuccessful response: ", response.toString());
-                    Toast.makeText(ShopPendingOrders.this, "Server Unresponsive at the moment.", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Server Unresponsive at the moment.", 2);
                     return;
                 }
 
                 if (response.body().size() > 0) {
                     if(response.body().get(0).getOrder_mode().equals("0")){
-                        Toast.makeText(ShopPendingOrders.this, "Server Unresponsive at the moment.", Toast.LENGTH_SHORT).show();
+                        showErrorDialog("Server Unresponsive at the moment.", 2);
                     }else{
                         Log.e("Successful Response: ", response.toString());
                         for (int i = 0; i < response.body().size(); i++) {
@@ -113,6 +121,7 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
                                 inputData.add(orders);
                             }
                         }
+                        sortData(inputData);
                     }
                 }else if(response==null) {
                     Log.e("Null Response: ", response.toString());
@@ -126,7 +135,7 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
             public void onFailure(Call<List<Orders>> call, Throwable t) {
                 loadingDialog.dismissDialog();
                 Log.e("Failure response: ", t.getMessage());
-                Toast.makeText(ShopPendingOrders.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
+                showErrorDialog("Server not reachable. Please check your connection.", 2);
             }
         });
     }
@@ -134,31 +143,109 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
     @Override
     public void order_complete_btn_onClick(final int position) {
         if(inputData.get(position).getAmount()==0) {
-            Toast.makeText(this, "Please add amount to mark it completed.", Toast.LENGTH_SHORT).show();
+            showErrorDialog("Set amount greater than 0.", 2);
             return;
         }
 
         loadingDialog.startDialog();
-        Call<String> call = shopNextDoorServerAPI.updateOrderStatus(inputData.get(position).getOrder_number(), "completed", inputData.get(position).getAmount());
+        Call<String> call = shopNextDoorServerAPI.updateOrderStatus(inputData.get(position).getOrder_number(), "completed", inputData.get(position).getAmount(), "");
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if(!response.isSuccessful()){
+                    loadingDialog.dismissDialog();
                     Log.e("Unsuccessful response: ", response.toString());
-                    Toast.makeText(ShopPendingOrders.this, "Server Unresponsive at the moment.", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Server Unresponsive at the moment.", 2);
                     return;
                 }
                 loadingDialog.dismissDialog();
                 inputData.remove(position);
                 if(inputData.size()==0) showMyDialog();
                 recyclerAdapterPendingOrdersShop.notifyDataSetChanged();
-                Toast.makeText(ShopPendingOrders.this, "Order completed successfully.", Toast.LENGTH_SHORT).show();
+                showSuccessDialog("Order completed successfully.");
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Log.e("Failure Response: ", t.getMessage());
                 loadingDialog.dismissDialog();
+            }
+        });
+    }
+
+    @Override
+    public void set_amount_onClick(int amount, final int position) {
+        loadingDialog.startDialog();
+        inputData.get(position).setAmount(amount);
+        recyclerAdapterPendingOrdersShop.notifyDataSetChanged();
+        Call<String> call = shopNextDoorServerAPI.updateOrderStatus(inputData.get(position).getOrder_number(), "accepted", amount, "");
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(!response.isSuccessful()){
+                    loadingDialog.dismissDialog();
+                    Log.e("Unsuccessful response: ", response.toString());
+                    showErrorDialog("Server Unresponsive at the moment.", 2);
+                    return;
+                }
+                loadingDialog.dismissDialog();
+                showSuccessDialog("Amount sent to customer successfully.");
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                showErrorDialog("We are unable to process your request at the moment.", 2);
+                Log.e("Failure Response: ", t.getMessage());
+                loadingDialog.dismissDialog();
+            }
+        });
+    }
+
+    private void sortData(List<Orders> inputData) {
+        Collections.sort(inputData, new Comparator<Orders>() {
+            @Override
+            public int compare(Orders o1, Orders o2) {
+                Date d1 = null, d2 = null;
+                if(o1.getOrder_completion_date()!=null) {
+                    try {
+                        d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o1.getOrder_completion_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else if(o1.getOrder_acceptance_date()!=null) {
+                    try {
+                        d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o1.getOrder_acceptance_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o1.getOrder_placed_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                if(o2.getOrder_completion_date()!=null) {
+                    try {
+                        d2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o2.getOrder_completion_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else if(o2.getOrder_acceptance_date()!=null) {
+                    try {
+                        d2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o2.getOrder_acceptance_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        d2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o2.getOrder_placed_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return d2.compareTo(d1);
             }
         });
     }
@@ -179,6 +266,52 @@ public class ShopPendingOrders extends AppCompatActivity implements Shop_OrderCo
                 intent.putExtra("shop_name", shop_name);
                 intent.putExtra("shop_username", shop_username);
                 startActivity(intent);
+            }
+        });
+    }
+
+    //Show registration error dialog (action: 1 for login button, 2 for ok button)
+    private void showErrorDialog(String error, int action) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_registration, null);
+        TextView error_msg = view.findViewById(R.id.error_msg);
+        Button login_btn = view.findViewById(R.id.login_btn);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+
+        error_msg.setText(error);
+        if(action==1) ok_btn.setVisibility(View.GONE);
+        else login_btn.setVisibility(View.GONE);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    //Show success dialog
+    private void showSuccessDialog(String str) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_success, null);
+        TextView msg = view.findViewById(R.id.msg);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+        msg.setText(str);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

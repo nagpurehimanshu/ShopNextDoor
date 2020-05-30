@@ -3,6 +3,7 @@ package com.example.shopnextdoor.Adapters;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,14 @@ public class RecyclerAdapterPendingOrdersShop extends RecyclerView.Adapter<Recyc
         holder.accepted_on.setText(ordersList.get(position).getOrder_acceptance_date());
         holder.order_items.setText(ordersList.get(position).getOrder_items());
         holder.expandableLayout.setDuration(200);
-        holder.amount.setText("");
+        holder.amount.setText(String.valueOf(ordersList.get(position).getAmount()));
+        if(!(holder.amount.getText().toString().equals("0") || holder.amount.getText().toString().equals(""))){
+            holder.set_amount_btn.setText("RESET AMOUNT");
+            holder.completed_btn.setBackgroundResource(R.drawable.rect_button1);
+        }else{
+            holder.set_amount_btn.setText("SET AMOUNT");
+            holder.completed_btn.setBackgroundResource(R.drawable.rect_button6);
+        }
 
         if(ordersList.get(position).getOrder_mode().equals("Shop Pickup")){
             holder.address_logo.setVisibility(View.GONE);
@@ -61,12 +69,11 @@ public class RecyclerAdapterPendingOrdersShop extends RecyclerView.Adapter<Recyc
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView order_number, customer_name, mode, placed_on, accepted_on, order_items, address, address_logo;
         EditText amount;
-        Button show_items_btn, completed_btn;
+        Button show_items_btn, set_amount_btn, completed_btn;
         ExpandableLayout expandableLayout;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
-
             order_number = itemView.findViewById(R.id.order_number);
             customer_name = itemView.findViewById(R.id.customer_name);
             mode = itemView.findViewById(R.id.order_mode);
@@ -75,6 +82,7 @@ public class RecyclerAdapterPendingOrdersShop extends RecyclerView.Adapter<Recyc
             amount = itemView.findViewById(R.id.amount);
             show_items_btn = itemView.findViewById(R.id.view_order_items);
             completed_btn = itemView.findViewById(R.id.order_complete_btn);
+            set_amount_btn = itemView.findViewById(R.id.set_amount);
             address = itemView.findViewById(R.id.address);
             address_logo = itemView.findViewById(R.id.address_logo);
             order_items = itemView.findViewById(R.id.order_items_expanded);
@@ -87,24 +95,17 @@ public class RecyclerAdapterPendingOrdersShop extends RecyclerView.Adapter<Recyc
                 }
             });
 
+            set_amount_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    shopOrderComplete_onClick.set_amount_onClick(Integer.parseInt(amount.getText().toString()), getAdapterPosition());
+                }
+            });
+
             completed_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     shopOrderComplete_onClick.order_complete_btn_onClick(getAdapterPosition());
-                }
-            });
-
-            amount.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {  }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {  }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    if(s.toString().equals("")) ordersList.get(getAdapterPosition()).setAmount(0);
-                    else ordersList.get(getAdapterPosition()).setAmount(Integer.parseInt(s.toString()));
                 }
             });
         }

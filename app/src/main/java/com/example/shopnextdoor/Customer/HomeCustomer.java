@@ -41,7 +41,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeCustomer extends AppCompatActivity{
-    TextView welcome, order_count, errorDisplay, nav_customer_name, nav_customer_username;
+    TextView welcome, order_count, nav_customer_name, nav_customer_username;
     Spinner shop_list_dropdown;
     String customer_username, customer_name, selected_shop_name, selected_shop_username, selected_shop_type;
     Boolean shop_selected = false;
@@ -87,7 +87,6 @@ public class HomeCustomer extends AppCompatActivity{
         setNavData();
 
         order_count = findViewById(R.id.order_status);
-        errorDisplay = findViewById(R.id.errorDisplay);
 
         configureToolbar();
         configureNavigationDrawer();
@@ -106,11 +105,9 @@ public class HomeCustomer extends AppCompatActivity{
         shop_list_dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                errorDisplay.setText("");
                 if(position==0) shop_selected = false;
                 else{
                     loadingDialog.startDialog();
-                    Log.e("Starting dialog", "");
                     shop_selected = true;
                     selected_shop_name = parent.getItemAtPosition(position).toString();
                     selected_shop_username = shopUsernameList.get(shopNameList.indexOf(selected_shop_name));
@@ -185,6 +182,7 @@ public class HomeCustomer extends AppCompatActivity{
                 switch (menuItem.getItemId()){
                     //When View Orders is pressed
                     case R.id.view_past_orders:
+                        loadingDialog.startDialog();
                         Intent intent = new Intent(getApplicationContext(), PastOrdersCustomer.class);
                         intent.putExtra("customer_username", customer_username);
                         intent.putExtra("customer_name", customer_name);
@@ -192,6 +190,7 @@ public class HomeCustomer extends AppCompatActivity{
                         break;
                     //Show Account Details
                     case R.id.account_details:
+                        loadingDialog.startDialog();
                         Intent intent2 = new Intent(getApplicationContext(), AccountDetailsCustomer.class);
                         intent2.putExtra("customer_username", customer_username);
                         intent2.putExtra("customer_name", customer_name);
@@ -273,12 +272,12 @@ public class HomeCustomer extends AppCompatActivity{
 
                 if(!response.isSuccessful()){
                     Log.e("Unsuccessful response: ", response.toString());
-                    Toast.makeText(HomeCustomer.this, "Server Unresponsive at the moment.", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Server Unresponsive at the moment.", 2);
                     return;
                 }
 
                 if(response.body().get(0).getResult().equals("0")){
-                       Log.e("Internal Server error", "");
+                    showErrorDialog("Internal Server error", 2);
                     return;
                 }
 
@@ -293,7 +292,7 @@ public class HomeCustomer extends AppCompatActivity{
 
             @Override
             public void onFailure(Call<List<Shop>> call, Throwable t) {
-                Toast.makeText(HomeCustomer.this, "Server not reachable. Please try again later.", Toast.LENGTH_SHORT).show();
+                showErrorDialog("Server not reachable. Please try again later.", 2);
                 Log.e("Failure response: ", t.getMessage());
                 loadingDialog.dismissDialog();
             }
@@ -329,16 +328,16 @@ public class HomeCustomer extends AppCompatActivity{
 
     //Place Order Button
     public void btn_place_order(View view) {
-        errorDisplay.setText("");
 
         if(shop_selected==false) {
-            Toast.makeText(this, "No shops selected!", Toast.LENGTH_SHORT).show();
+            showErrorDialog("No shops selected!", 2);
             return;
         }
 
         if(proceedWithOrder==0){
-            errorDisplay.setText("Internal Server Error. Could not proceed.");
+            showErrorDialog("Internal Server Error. Could not proceed.", 2);
         }else if(proceedWithOrder==1){
+            loadingDialog.startDialog();
             Intent intent = new Intent(this, PlaceOrder.class);
             intent.putExtra("customer_username", customer_username);
             intent.putExtra("customer_name", customer_name);
@@ -347,12 +346,13 @@ public class HomeCustomer extends AppCompatActivity{
             intent.putExtra("shop_type", selected_shop_type);
             startActivity(intent);
         }else{
-            errorDisplay.setText("You already have an active order with this shop. Select a different shop to proceed.");
+            showErrorDialog("You already have an active order with this shop. Select a different shop to proceed.", 2);
         }
 
     }
 
     public void active_orders(View view) {
+        loadingDialog.startDialog();
         Intent intent = new Intent(getApplicationContext(), ViewActiveOrders.class);
         intent.putExtra("customer_name", customer_name);
         intent.putExtra("customer_username", customer_username);
@@ -383,6 +383,52 @@ public class HomeCustomer extends AppCompatActivity{
         });
 
         cancel_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    //Show registration error dialog (action: 1 for login button, 2 for ok button)
+    private void showErrorDialog(String error, int action) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_registration, null);
+        TextView error_msg = view.findViewById(R.id.error_msg);
+        Button login_btn = view.findViewById(R.id.login_btn);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+
+        error_msg.setText(error);
+        if(action==1) ok_btn.setVisibility(View.GONE);
+        else login_btn.setVisibility(View.GONE);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    //Show success dialog
+    private void showSuccessDialog(String str) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_success, null);
+        TextView msg = view.findViewById(R.id.msg);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+        msg.setText(str);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();

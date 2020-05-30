@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="60dp"
-    android:background="@color/bgColor">
+    android:background="@color/colorPrimaryDark">
 
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Welcome Customers!"
         android:textStyle="bold"
-        android:textColor="@color/fgColor"
+        android:textColor="@color/colorPrimary"
         android:background="@color/white"
         android:layout_gravity="center"
         android:gravity="center"
@@ -34,7 +34,8 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textColorHint="@color/white"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primaryLight"/>
 
     <EditText
         android:id="@+id/password"
@@ -49,7 +50,8 @@
         android:gravity="center"
         android:focusableInTouchMode="true"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primaryLight"/>
 
 
     <Button
@@ -62,7 +64,7 @@
         android:text="Login"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:background="@color/fgColor"
+        android:background="@color/colorPrimary"
         android:padding="10sp"/>
 
 </LinearLayout>

@@ -11,16 +11,17 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        android:background="@color/bgColor"/>
+        android:background="@color/colorPrimaryDark"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Loading..."
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:layout_toRightOf="@id/progress_bar"
-        android:layout_marginLeft="10sp"
-        android:layout_gravity="center"/>
+        android:layout_marginLeft="20sp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimaryDark"/>
 
 </LinearLayout>

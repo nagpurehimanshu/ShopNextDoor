@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shopnextdoor.Adapters.RecyclerAdapterViewPastOrdersShop;
@@ -18,7 +19,12 @@ import com.example.shopnextdoor.Utility.LoadingDialog;
 import com.example.shopnextdoor.network.ShopNextDoorServerAPI;
 import com.example.shopnextdoor.network.URL;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -70,11 +76,11 @@ public class ViewPastOrdersShop extends AppCompatActivity {
             public void onResponse(Call<List<Orders>> call, Response<List<Orders>> response) {
                 if(!response.isSuccessful()){
                     Log.e("Unsuccessful response: ", response.toString());
-                    Toast.makeText(ViewPastOrdersShop.this, "Server Unresponsive", Toast.LENGTH_SHORT).show();
+                    showErrorDialog("Server Unresponsive", 2);
                 }else{
                     if(response.body().size() > 0){
                         if(response.body().get(0).getResult().equals("0")){
-                            Toast.makeText(ViewPastOrdersShop.this, "Server Unresponsive", Toast.LENGTH_SHORT).show();
+                            showErrorDialog("Server Unresponsive", 2);
                         }else{
                             Log.e("Successful Response: ", response.toString());
                             for(int i=0; i<response.body().size(); i++){
@@ -111,6 +117,7 @@ public class ViewPastOrdersShop extends AppCompatActivity {
                                     inputData.add(orders);
                                 }
                             }
+                            sortData(inputData);
                         }
                     }else if(response==null) {
                         Log.e("Null Response: ", response.toString());
@@ -125,7 +132,56 @@ public class ViewPastOrdersShop extends AppCompatActivity {
             public void onFailure(Call<List<Orders>> call, Throwable t) {
                 loadingDialog.dismissDialog();
                 Log.e("Failure response: ", t.getMessage());
-                Toast.makeText(ViewPastOrdersShop.this, "Server not reachable. Please check your connection.", Toast.LENGTH_SHORT).show();
+                showErrorDialog("Server not reachable. Please check your connection.", 2);
+            }
+        });
+    }
+
+    private void sortData(List<Orders> inputData) {
+        Collections.sort(inputData, new Comparator<Orders>() {
+            @Override
+            public int compare(Orders o1, Orders o2) {
+                Date d1 = null, d2 = null;
+                if(o1.getOrder_completion_date()!=null) {
+                    try {
+                        d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o1.getOrder_completion_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else if(o1.getOrder_acceptance_date()!=null) {
+                    try {
+                        d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o1.getOrder_acceptance_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o1.getOrder_placed_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                if(o2.getOrder_completion_date()!=null) {
+                    try {
+                        d2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o2.getOrder_completion_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else if(o2.getOrder_acceptance_date()!=null) {
+                    try {
+                        d2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o2.getOrder_acceptance_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        d2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(o2.getOrder_placed_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return d2.compareTo(d1);
             }
         });
     }
@@ -146,6 +202,52 @@ public class ViewPastOrdersShop extends AppCompatActivity {
                 intent.putExtra("shop_name", shop_name);
                 intent.putExtra("shop_username", shop_username);
                 startActivity(intent);
+            }
+        });
+    }
+
+    //Show registration error dialog (action: 1 for login button, 2 for ok button)
+    private void showErrorDialog(String error, int action) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_registration, null);
+        TextView error_msg = view.findViewById(R.id.error_msg);
+        Button login_btn = view.findViewById(R.id.login_btn);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+
+        error_msg.setText(error);
+        if(action==1) ok_btn.setVisibility(View.GONE);
+        else login_btn.setVisibility(View.GONE);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    //Show success dialog
+    private void showSuccessDialog(String str) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_success, null);
+        TextView msg = view.findViewById(R.id.msg);
+        Button ok_btn = view.findViewById(R.id.ok_btn);
+        msg.setText(str);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

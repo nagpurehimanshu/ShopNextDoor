@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Customer.OrderPlaced"
-    android:background="@color/contrast"
+    android:background="@color/colorPrimaryDark"
     android:layout_gravity="center"
     android:gravity="center">
 
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@color/bgColor"
+                android:background="@color/colorPrimary"
                 android:padding="10sp">
                 <ImageView
                     android:layout_width="50dp"
