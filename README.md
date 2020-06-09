@@ -19,3 +19,10 @@
     * Send bills to customers.
     * Mark orders as completed.
 
+## App Flow (Top to Bottom Layer)
+1. #### App Design (Layouts and views)
+2. #### App Logic in Java 
+3. #### Push Notification using Firebase Integration 
+4. #### API calls using Retrofit
+5. #### Server to handle requests using Spring Boot and Java (hosted on Google Cloud Platform)
+6. #### Database integration using JPA and using MySQL (hosted on Google Cloud Platform)
