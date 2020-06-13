@@ -27,4 +27,4 @@
 5. #### Server to handle requests using Spring Boot and Java (hosted on Google Cloud Platform)
 6. #### Database integration using JPA and using MySQL (hosted on Google Cloud Platform)
 
-## Note: Server side code is stored in another repository. Go to https://github.com/nagpurehimanshu/ShopNextDoorServer
+### Note: Server side code is stored in another repository. Go to https://github.com/nagpurehimanshu/ShopNextDoorServer
